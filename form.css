@@ -1,0 +1,161 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #0f172a, #1e3a8a);
+}
+
+/* CONTAINER */
+.container {
+  max-width: 850px;
+  margin: 5px auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  align-items: right;
+}
+
+/* HEADER */
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  font-size: 20px;
+  color: #1e3a8a;
+}
+
+/* IMAGE PREVIEW */
+.photo-preview-container {
+  text-align: right;
+}
+
+.photo-preview-container img {
+  width: 120px;
+  height: 120px;
+  border-radius: 8px;
+  border: 2px solid #1e3a8a;
+  object-fit: cover;
+}
+
+.upload-btn {
+  display: block;
+  margin-top: 5px;
+  background: #1e3a8a;
+  color: white;
+  padding: 6px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+/* SECTION TITLES */
+h2 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-left: 4px solid #1e3a8a;
+  padding-left: 10px;
+  color: #0f172a;
+}
+
+/* FORM */
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* BUTTON */
+button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background: #1e3a8a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0f172a;
+}
+
+/* MESSAGE */
+#message {
+  text-align: center;
+  margin-top: 15px;
+  font-weight: bold;
+  color: green;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .form-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+}/* Error = red */
+.error {
+  border: 2px solid red !important;
+}
+
+/* Success = green */
+.success {
+  border: 2px solid green !important;
+}
+/* POPUP BACKGROUND */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+/* POPUP BOX */
+.popup-content {
+  background: white;
+  padding: 25px;
+  width: 320px;
+  border-radius: 12px;
+  text-align: center;
+  animation: fadeIn 0.3s ease;
+}
+
+/* CLOSE BUTTON */
+.close-btn {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+  from {opacity: 0; transform: scale(0.8);}
+  to {opacity: 1; transform: scale(1);}
+}
+

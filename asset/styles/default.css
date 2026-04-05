@@ -1,0 +1,123 @@
+/* =====================================
+   CSS RESET
+   Removes browser default styling
+===================================== */
+
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =====================================
+   HTML & BODY DEFAULTS
+===================================== */
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: var(--font-primary);
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-base);
+    background-color: 28b40c;
+    color: var(--text-color);
+}
+
+
+/* =====================================
+   MEDIA ELEMENTS
+===================================== */
+
+img,
+picture,
+video,
+canvas,
+svg{
+    display: block;
+    max-width: 100%;
+}
+
+
+/* =====================================
+   FORM ELEMENTS
+===================================== */
+
+input,
+button,
+textarea,
+select{
+    font: inherit;
+    border: none;
+    outline: none;
+}
+
+
+/* =====================================
+   LINKS
+===================================== */
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =====================================
+   LISTS
+===================================== */
+
+ul,
+ol{
+    list-style: none;
+}
+
+
+/* =====================================
+   HEADINGS
+===================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    font-weight: var(--font-weight-bold);
+    color: var(--heading-color);
+}
+
+
+/* =====================================
+   BUTTON DEFAULT STYLE
+===================================== */
+
+button{
+    cursor: pointer;
+    background: none;
+}
+
+
+/* =====================================
+   TABLES
+===================================== */
+
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+/* =====================================
+   CONTAINER DEFAULT
+===================================== */
+
+.container{
+    width: 90%;
+    max-width: var(--container-width);
+    margin: auto;
+}

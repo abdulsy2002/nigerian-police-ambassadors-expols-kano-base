@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Validate Member</title>
+
+  <!-- CSS -->
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .card {
+      background: #fff;
+      padding: 25px;
+      width: 350px;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #003366;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      background: #003366;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0055aa;
+    }
+
+    #reader {
+      margin-top: 15px;
+    }
+
+    .result {
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .success {
+      background: #e6ffed;
+      color: green;
+    }
+
+    .error {
+      background: #ffe6e6;
+      color: red;
+    }
+  </style>
+
+  <!-- QR Scanner Library -->
+  <script src="https://unpkg.com/html5-qrcode"></script>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="card">
+
+    <h2>Validate Membership</h2>
+
+    <!-- Manual Input -->
+    <input type="text" id="memberId" placeholder="Enter Member ID">
+    <button onclick="validateUser()">Validate</button>
+
+    <!-- QR Scanner -->
+    <div id="reader"></div>
+
+    <!-- Result -->
+    <div id="result"></div>
+
+  </div>
+</div>
+
+<script>
+  // Dummy members (replace with database later)
+  let members = ["NP001", "NP002", "NP003"];
+
+  // Manual validation
+  function validateUser() {
+    let id = document.getElementById("memberId").value;
+    showResult(id);
+  }
+
+  // Show result
+  function showResult(id) {
+    let result = document.getElementById("result");
+
+    if (members.includes(id)) {
+      result.innerHTML = "✅ Valid Member: " + id;
+      result.className = "result success";
+    } else {
+      result.innerHTML = "❌ Member Not Found";
+      result.className = "result error";
+    }
+  }
+
+  // QR Scan success
+  function onScanSuccess(decodedText) {
+    let id = decodedText;
+
+    // If QR contains link like ?id=NP001
+    if (decodedText.includes("id=")) {
+      let url = new URL(decodedText);
+      id = url.searchParams.get("id");
+    }
+
+    document.getElementById("memberId").value = id;
+    showResult(id);
+  }
+
+  // Start scanner
+  let scanner = new Html5QrcodeScanner("reader", {
+    fps: 10,
+    qrbox: 200
+  });
+
+  scanner.render(onScanSuccess);
+</script>
+
+</body>
+</html>

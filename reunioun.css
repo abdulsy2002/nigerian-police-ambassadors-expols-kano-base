@@ -1,0 +1,33 @@
+
+/* REUNION PAGE STYLING */
+h1 {
+  color: #4F46E5;
+  margin-bottom: 10px;
+}
+
+h2, h3 {
+  margin-top: 15px;
+  color: #111827;
+}
+
+/* CARD EFFECT FOR REUNION CONTENT */
+body > h1,
+body > ul {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .org-branch {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .org-node {
+    width: 90%;
+  }
+}

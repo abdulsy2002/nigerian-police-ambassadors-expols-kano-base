@@ -1,0 +1,100 @@
+/* Reset */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* Page Background */
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg,#1e3c72,#2a5298);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* Login Box */
+.login-container{
+    background:white;
+    width:350px;
+    padding:40px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Logo Image */
+.logo{
+    width:120px;       /* image size */
+    height:120px;      /* keeps it square */
+    object-fit:cover;  /* prevents stretching */
+    border-radius:50%; /* makes image circular */
+    margin-bottom:15px;
+    border:3px solid #1e3c72;
+}
+
+/* Title */
+h2{
+    margin-bottom:20px;
+    color:#333;
+}
+
+/* Input Fields */
+input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:5px;
+    font-size:14px;
+}
+
+/* Button */
+button{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    background:#1e3c72;
+    color:white;
+    border:none;
+    border-radius:5px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+/* Button Hover */
+button:hover{
+    background:#16325c;
+}
+
+/* Register Text */
+.register{
+    margin-top:15px;
+    font-size:14px;
+}
+
+.register a{
+    color:#1e3c72;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.register a:hover{
+    text-decoration:underline;
+}
+.forgot{
+    text-align:right;
+    margin:5px 0 10px 0;
+}
+
+.forgot a{
+    font-size:13px;
+    text-decoration:none;
+    color:#1e3c72;
+}
+
+.forgot a:hover{
+    text-decoration:underline;
+}
