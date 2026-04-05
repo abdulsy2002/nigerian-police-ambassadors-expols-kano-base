@@ -30,7 +30,8 @@
 
     <!-- Hamburger Menu -->
         <div class="hamburger-menu">
-            <i class="fa-solid fa-bars"></i>
+            <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+         <ul class="nav-menu"></ul>
         </div>
     </nav>
  </header>
@@ -67,6 +68,15 @@
     </div>
 	
 
+	
+<script>
+    // Hamburger menu toggle
+const navToggle = document.querySelector('.nav-toggle');
+const navMenu = document.querySelector('.nav-menu');
 
+navToggle.addEventListener('click', () => {
+  navMenu.classList.toggle('active');
+});
+  </script>
 </body>
 </html>
