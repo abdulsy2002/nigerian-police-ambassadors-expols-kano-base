@@ -29,8 +29,12 @@
         </ul>
 
     <!-- Hamburger Menu -->
+<<<<<<< HEAD
         <div class="hamburger-menu">
             <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+=======
+        <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+>>>>>>> 3c3bcfc (update changes)
          <ul class="nav-menu"></ul>
         </div>
     </nav>
@@ -67,12 +71,23 @@
        
     </div>
 	
+<script>
+    // Hamburger menu toggle
+const navToggle = document.querySelector('.nav-toggle');
+const navMenu = document.querySelector('.nav-menu');
 
+<<<<<<< HEAD
 	
 <script>
     // Hamburger menu toggle
 const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('.nav-menu');
+=======
+navToggle.addEventListener('click', () => {
+  navMenu.classList.toggle('active');
+});
+  </script>
+>>>>>>> 3c3bcfc (update changes)
 
 navToggle.addEventListener('click', () => {
   navMenu.classList.toggle('active');
