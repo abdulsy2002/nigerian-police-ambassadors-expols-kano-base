@@ -8,11 +8,12 @@
 
 /* BODY */
 body {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background: linear-gradient(135deg, #4F46E5, #9333EA);
+  padding: 20px;
 }
 
 /* CONTACT CARD */
@@ -29,6 +30,7 @@ body {
 .contact h2 {
   margin-bottom: 10px;
   color: #4F46E5;
+  font-size: 24px;
 }
 
 .contact p {
@@ -42,6 +44,7 @@ body {
   margin-top: 15px;
   margin-bottom: 8px;
   color: #333;
+  font-size: 18px;
 }
 
 /* BUTTON BASE */
@@ -77,4 +80,73 @@ body {
 .btn:hover {
   transform: translateY(-3px);
   opacity: 0.9;
+}
+
+/* -------------------- */
+/* MOBILE DEVICES (up to 600px) */
+/* -------------------- */
+@media(max-width:600px){
+  .contact{
+    width: 90%;
+    padding: 20px;
+  }
+  .contact h2{
+    font-size: 20px;
+  }
+  .contact h3{
+    font-size: 16px;
+  }
+  .contact p{
+    font-size: 13px;
+  }
+  .btn{
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+/* -------------------- */
+/* TABLETS / SMALL LAPTOPS (601px–1024px) */
+/* -------------------- */
+@media(min-width:601px) and (max-width:1024px){
+  .contact{
+    width: 80%;
+    padding: 25px;
+  }
+  .contact h2{
+    font-size: 22px;
+  }
+  .contact h3{
+    font-size: 17px;
+  }
+  .contact p{
+    font-size: 14px;
+  }
+  .btn{
+    padding: 11px;
+    font-size: 15px;
+  }
+}
+
+/* -------------------- */
+/* LARGE SCREENS (1025px and above) */
+/* -------------------- */
+@media(min-width:1025px){
+  .contact{
+    width: 400px;
+    padding: 30px;
+  }
+  .contact h2{
+    font-size: 24px;
+  }
+  .contact h3{
+    font-size: 18px;
+  }
+  .contact p{
+    font-size: 14px;
+  }
+  .btn{
+    padding: 12px;
+    font-size: 16px;
+  }
 }

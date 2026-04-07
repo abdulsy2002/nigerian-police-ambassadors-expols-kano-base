@@ -14,28 +14,21 @@
     <h2>Create Account</h2>
 
     <form onsubmit="register(); return false;">
-      
-      <div class="input-box">
 
-        <input type="email" id="registerEmail" placeholder=" " required>
+      <!-- EMAIL -->
+      <div class="input-box">
+        <input type="email" id="registerEmail" required>
         <label>Email</label>
-     <div class="input-box">
-      <label>Create Password</label>
-<input type="password" id="password" required>
       </div>
 
-<!-- SUBMIT BUTTON -->
-<button type="submit">Submit</button>
+      <!-- PASSWORD -->
+      <div class="input-box">
+        <input type="password" id="password" required>
+        <label>Create Password</label>
+      </div>
 
-
-<!-- POPUP -->
-<div id="successPopup" class="popup">
-  <div class="popup-content">
-    <span class="close-btn" onclick="closePopup()">&times;</span>
-    <h2>🎉 Congratulations!</h2>
-    <p>You have successfully registered</p>
-  </div>
-</div>
+      <!-- BUTTON -->
+      <button type="submit">Submit</button>
 
       <p class="register">
         Already have an account? <a href="login.html">Login</a>
@@ -46,6 +39,6 @@
 </div>
 
 <script src="script.js"></script>
+
 </body>
 </html>
-

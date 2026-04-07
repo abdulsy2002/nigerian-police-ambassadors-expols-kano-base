@@ -44,6 +44,13 @@
   color: white;
   text-decoration: none;
   font-weight: bold;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-menu li a:hover {
+  color: #f39c12;
+  border-bottom: 2px solid #f39c12;
+  transform: scale(1.05);
 }
 
 .navbar-menu.active {
@@ -96,7 +103,70 @@ footer {
 }
 
 /* === MEDIA QUERIES === */
-@media (min-width: 768px) {
+
+/* Mobile (up to 767px) */
+@media(max-width:767px){
+  .hero {
+    padding: 60px 15px;
+  }
+  .hero h2 {
+    font-size: 26px;
+  }
+  .hero p {
+    font-size: 16px;
+  }
+  section {
+    padding: 30px 15px;
+  }
+  section h2 {
+    font-size: 20px;
+  }
+  footer {
+    padding: 15px;
+    font-size: 14px;
+  }
+}
+
+/* Tablet / Small Laptops (768px–1024px) */
+@media(min-width:768px) and (max-width:1024px){
+  .hero {
+    padding: 70px 20px;
+  }
+  .hero h2 {
+    font-size: 30px;
+  }
+  .hero p {
+    font-size: 17px;
+  }
+  section {
+    padding: 35px 20px;
+  }
+  section h2 {
+    font-size: 22px;
+  }
+}
+
+/* Desktop (1025px and above) */
+@media(min-width:1025px){
+  .hero {
+    padding: 100px 40px;
+  }
+  .hero h2 {
+    font-size: 36px;
+  }
+  .hero p {
+    font-size: 18px;
+  }
+  section {
+    padding: 50px 40px;
+  }
+  section h2 {
+    font-size: 26px;
+  }
+}
+
+/* Desktop Navbar (already in your original) */
+@media(min-width: 768px) {
   .nav-toggle {
     display: none;
   }
@@ -108,8 +178,4 @@ footer {
     background: none;
     padding: 0;
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> a3b2cab4c560ee331228e1bd072653268f559d63

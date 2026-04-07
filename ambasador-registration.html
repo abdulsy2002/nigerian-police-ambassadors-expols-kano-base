@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NPA EXPOLS KANO – Ambassador Registration</title>
+<link rel="stylesheet" href="form.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>NIGERIAN POLICE AMBASSADORS<br>AMBASSADORSHIP REGISTRATION</h1>
+
+<!-- Passport -->
+<div class="photo-preview-container">
+<img id="passportPreview" src="https://via.placeholder.com/120">
+<label for="photo" class="upload-btn">Upload Passport</label>
+<input type="file" id="photo" accept="image/*" style="display:none">
+</div>
+
+<form id="ambassadorForm">
+
+<!-- SECTION 1 -->
+<h2>Section 1: Personal Information</h2>
+
+<label>Full Name</label>
+<input type="text" required>
+
+<label>Gender</label>
+<select required>
+<option value="">Select</option>
+<option>Male</option>
+<option>Female</option>
+</select>
+
+<label>Date of Birth</label>
+<input type="date">
+
+<label>Phone Number</label>
+<input type="tel" required>
+
+<label>Email Address</label>
+<input type="email" required>
+
+<label>Residential Address</label>
+<input type="text">
+
+<label>State</label>
+<select>
+<option>Kano</option>
+<option>Abuja</option>
+<option>Lagos</option>
+<option>Kaduna</option>
+<option>Other</option>
+</select>
+
+
+<!-- SECTION 2 -->
+<h2>Section 2: Professional Details</h2>
+
+<label>Occupation / Profession</label>
+<input type="text">
+
+<label>Organization / Company Name</label>
+<input type="text">
+
+<label>Position / Title</label>
+<input type="text">
+
+<label>Years of Experience</label>
+<input type="number">
+
+<label>LinkedIn / Website</label>
+<input type="url">
+
+
+<!-- SECTION 3 -->
+<h2>Section 3: Ambassador Role</h2>
+
+<label>Type of Ambassador</label>
+<select required>
+
+<option value="">Select Category</option>
+
+<option>Sponsor</option>
+<option>Donor</option>
+<option>Board of Trustee</option>
+<option>Partner</option>
+<option>Mentor</option>
+<option>Volunteer</option>
+<option>Supporter</option>
+
+</select>
+
+<label>How would you like to support the organization?</label>
+
+<select>
+
+<option>Financial Support</option>
+<option>Mentorship</option>
+<option>Educational Programs</option>
+<option>Career Development</option>
+<option>Scholarship Support</option>
+<option>Training & Workshops</option>
+<option>Networking Opportunities</option>
+
+</select>
+
+<label>Estimated Support Commitment</label>
+
+<select>
+
+<option>One-Time Donation</option>
+<option>Monthly Support</option>
+<option>Yearly Sponsorship</option>
+<option>Project-Based Support</option>
+
+</select>
+
+
+<!-- SECTION 4 -->
+<h2>Section 4: Contribution & Message</h2>
+
+<label>Why do you want to become an Ambassador?</label>
+<textarea rows="4"></textarea>
+
+<label>Message to EX-POLS Students</label>
+<textarea rows="4"></textarea>
+
+<label>Upload Supporting Document (Optional)</label>
+<input type="file">
+
+<button type="submit">Submit Registration</button>
+
+</form>
+
+</div>
+
+
+<!-- SUCCESS POPUP -->
+<div id="successPopup" class="popup">
+<div class="popup-content">
+<span class="close-btn" onclick="closePopup()">&times;</span>
+<h2>🎉 Registration Successful!</h2>
+<p>Thank you for becoming an Ambassador of Nigerian Police Ambassadors EX-POLS Kano Base.</p>
+</div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

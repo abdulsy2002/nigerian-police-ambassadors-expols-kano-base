@@ -23,3 +23,40 @@ else{
 }
 
 }
+const loginForm = document.getElementById('loginForm');
+
+loginForm.addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent form from submitting the normal way
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    // Simple example: check for hardcoded user
+    if(email === "admin@example.com" && password === "password123") {
+        // Redirect to dashboard
+        window.location.href = "dashboard.html";
+    } else {
+        alert("Invalid email or password. Try again.");
+    }
+});
+function register(){
+
+let email = document.getElementById("registerEmail").value;
+let password = document.getElementById("password").value;
+
+let users = JSON.parse(localStorage.getItem("users")) || [];
+
+let newUser = {
+email: email,
+password: password
+};
+
+users.push(newUser);
+
+localStorage.setItem("users", JSON.stringify(users));
+
+alert("Registration Successful!");
+
+window.location.href = "login.html";
+
+}

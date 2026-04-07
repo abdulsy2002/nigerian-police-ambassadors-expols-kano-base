@@ -1,18 +1,43 @@
-
 /* REUNION PAGE STYLING */
-h1 {
-  color: #4F46E5;
-  margin-bottom: 10px;
+
+body{
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  background: #f3f4f6;
+  padding: 30px;
 }
 
-h2, h3 {
-  margin-top: 15px;
+/* MAIN TITLE */
+h1{
+  color: #4F46E5;
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+/* SUB HEADINGS */
+h2, h3{
+  margin-top: 20px;
+  font-size: 24px;
   color: #111827;
 }
 
-/* CARD EFFECT FOR REUNION CONTENT */
-body > h1, h2.h3
-body > ul {
+/* PARAGRAPH */
+p{
+  font-size: 18px;
+}
+
+/* LIST */
+ul{
+  font-size: 18px;
+  padding-left: 20px;
+}
+
+/* CARD EFFECT */
+body > h1,
+body > h2,
+body > p,
+body > ul{
   background: white;
   padding: 15px;
   border-radius: 8px;
@@ -20,14 +45,61 @@ body > ul {
   box-shadow: 0 3px 8px rgba(0,0,0,0.1);
 }
 
-/* RESPONSIVE DESIGN */
-@media (max-width: 768px) {
-  .org-branch {
-    flex-direction: column;
-    align-items: center;
+
+/* -------------------- */
+/* 📱 MOBILE DEVICES */
+/* -------------------- */
+@media (max-width: 600px){
+
+  body{
+    padding: 15px;
+    font-size: 16px;
   }
 
-  .org-node {
-    width: 90%;
+  h1{
+    font-size: 26px;
+    text-align: center;
   }
+
+  h2{
+    font-size: 20px;
+  }
+
+  p, ul{
+    font-size: 16px;
+  }
+
+}
+
+
+/* -------------------- */
+/* 💻 TABLETS */
+/* -------------------- */
+@media (min-width: 601px) and (max-width: 1024px){
+
+  body{
+    padding: 20px;
+  }
+
+  h1{
+    font-size: 32px;
+  }
+
+  h2{
+    font-size: 22px;
+  }
+
+}
+
+
+/* -------------------- */
+/* 🖥️ LARGE SCREENS */
+/* -------------------- */
+@media (min-width: 1025px){
+
+  body{
+    max-width: 900px;
+    margin: auto;
+  }
+
 }
