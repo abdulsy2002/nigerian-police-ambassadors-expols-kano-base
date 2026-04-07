@@ -3,71 +3,55 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Pictures</title>
+<title>2ND AGM Pictures</title>
 
 <style>
-
-/* Page styling */
 body{
     margin:0;
     font-family: Arial, sans-serif;
     background:#f4f4f4;
 }
-
-/* Gallery container */
 .gallery{
     display:flex;
     flex-wrap:wrap;
     gap:20px;
     padding:20px;
 }
-
-/* Photo card */
 .photo{
     flex:1 1 250px;
     overflow:hidden;
     border-radius:8px;
     box-shadow:0 4px 10px rgba(0,0,0,0.2);
 }
-
-/* Image styling */
 .photo img{
     width:100%;
     height:200px;
     object-fit:cover;
     transition:transform 0.3s;
 }
-
-/* Hover effect */
 .photo img:hover{
     transform:scale(1.05);
 }
-
 </style>
 </head>
-
 <body>
 
-<h1 style="text-align:center;">3RD AGM Picture Gallery</h1>
+<h1 style="text-align:center;">2ND AGM Picture Gallery</h1>
 
 <div class="gallery" id="gallery"></div>
 
 <script>
-
-/* Change the number depending on how many images you have */
-for(let i = 1; i <= 318; i++){
-
+for(let i = 1; i <= 98; i++){
     const photo = document.createElement("div");
     photo.className = "photo";
 
     const img = document.createElement("img");
-    img.src = `3rd agm/image (${i}).jpg`;
-    img.alt = "Photo";
+    img.src = `2nd agm/image (${i}).jpeg`; // <-- fixed folder path
+    img.alt = `Photo ${i}`;
 
     photo.appendChild(img);
     document.getElementById("gallery").appendChild(photo);
 }
-
 </script>
 
 </body>

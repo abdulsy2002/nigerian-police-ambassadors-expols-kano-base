@@ -1,24 +1,180 @@
-/* MENU */
-.menu{
-  list-style:none;
-  display:flex;
-  flex-direction:column; /* stacked by default */
-  gap:20px;
-  padding:0;
-  margin:0;
-  align-items:center;
+/* registration.css */
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* -------------------- */
-/* TABLETS AND DESKTOPS MENU */
-@media(min-width:601px){
-  .menu{
-    flex-direction:row; /* horizontal */
-    justify-content:center; /* center buttons */
-    gap:30px; /* space between buttons */
-  }
+/* BODY */
+body {
+    background: #f0f4f8; /* soft light background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
 
-  .menu li{
-    margin:0;
-  }
+/* CONTAINER */
+.container {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    text-align: center;
+    max-width: 450px;
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+}
+
+/* HEADER */
+h1 {
+    font-size: 1.8rem;
+    color: #1e3a8a; /* police blue accent */
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+/* PARAGRAPH */
+p {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+/* MENU LIST */
+.menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0;
+}
+
+/* BUTTONS */
+.btn {
+    text-decoration: none;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+/* EXPOLS BUTTON */
+.btn.expols {
+    background-color: #1e3a8a;
+    color: #fff;
+}
+
+.btn.expols:hover {
+    background-color: #3b82f6;
+    transform: translateY(-3px);
+}
+
+/* AMBASSADOR BUTTON */
+.btn.ambassador {
+    background-color: #10b981;
+    color: #fff;
+}
+
+.btn.ambassador:hover {
+    background-color: #34d399;
+    transform: translateY(-3px);
+}
+
+/* ===========================
+   MEDIA QUERIES FOR RESPONSIVENESS
+=========================== */
+
+/* Small screens (phones) */
+@media (max-width: 500px) {
+    .container {
+        padding: 30px 20px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 0.95rem;
+    }
+
+    .btn {
+        padding: 12px 20px;
+        font-size: 0.95rem;
+    }
+}
+
+/* Medium screens (tablets) */
+@media (min-width: 501px) and (max-width: 768px) {
+    .container {
+        max-width: 400px;
+        padding: 35px 25px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    p {
+        font-size: 0.97rem;
+    }
+
+    .btn {
+        padding: 14px 22px;
+        font-size: 0.97rem;
+    }
+}
+
+/* Large screens (laptops/desktops) */
+@media (min-width: 769px) and (max-width: 1200px) {
+    .container {
+        max-width: 450px;
+        padding: 40px 30px;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .btn {
+        padding: 15px 25px;
+        font-size: 1rem;
+    }
+}
+
+/* Extra large screens (big desktops) */
+@media (min-width: 1201px) {
+    .container {
+        max-width: 500px;
+        padding: 50px 40px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1.1rem;
+    }
+
+    .btn {
+        padding: 18px 30px;
+        font-size: 1.1rem;
+    }
 }
