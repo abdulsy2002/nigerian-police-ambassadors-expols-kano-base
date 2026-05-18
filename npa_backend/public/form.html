@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NPA EXPOLS Registration</title>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; background: #f4f7f6; margin: 0; padding: 20px; }
+    .container { max-width: 850px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+    h1, h2 { text-align: center; color: #1a365d; margin-bottom: 10px; }
+    .logo { text-align: center; margin-bottom: 20px; }
+    .section { margin-bottom: 25px; border-bottom: 1px solid #e2e8f0; padding-bottom: 15px; }
+    .section h3 { color: #2d3748; margin-top: 0; }
+    label { display: block; margin: 12px 0 6px; font-weight: 500; color: #4a5568; }
+    input, select, textarea { width: 100%; padding: 10px; border: 1px solid #cbd5e0; border-radius: 6px; font-size: 15px; box-sizing: border-box; }
+    input:focus, select:focus { outline: none; border-color: #3182ce; box-shadow: 0 0 0 3px rgba(49,130,206,0.2); }
+    button[type="submit"] { width: 100%; padding: 14px; background: #2563eb; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; margin-top: 20px; transition: background 0.2s; }
+    button[type="submit"]:hover { background: #1d4ed8; }
+    button[type="submit"]:disabled { background: #93c5fd; cursor: not-allowed; }
+    .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; z-index: 1000; }
+    .modal-content { background: white; padding: 30px; border-radius: 12px; text-align: center; max-width: 400px; width: 90%; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+    .close { float: right; cursor: pointer; font-size: 24px; line-height: 1; }
+    .file-upload { display: flex; align-items: center; gap: 10px; margin: 5px 0 15px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="profile.jpg" alt="NPA Logo" style="border-radius: 8px;">
+      <h2>NIGERIAN POLICE AMBASSADORS EX-POLS KANO BASE</h2>
+    </div>
+
+    <form id="expolsForm">
+      <!-- Section 1: Personal Identification -->
+      <div class="section">
+        <h3>Section 1: Personal Identification</h3>
+        <label>Full Name <input type="text" name="fullName" required></label>
+        <label>Other Name <input type="text" name="otherName"></label>
+        <label>Gender 
+          <select name="gender" required><option value="">Select</option><option value="Male">Male</option><option value="Female">Female</option></select>
+        </label>
+        <label>Date of Birth <input type="date" name="dob" required></label>
+        <label>NIN <input type="text" name="nin" required pattern="\d{11}" title="11 digits"></label>
+        <label>Phone Number <input type="tel" name="phone" required></label>
+        <label>Email Address <input type="email" name="email" required></label>
+        <label>Residential Address <input type="text" name="address" required></label>
+        <label>Upload Passport 
+          <div class="file-upload"><input type="file" name="passport" accept="image/*" required></div>
+        </label>
+      </div>
+
+      <!-- Section 2: PSS Academic History -->
+      <div class="section">
+        <h3>Section 2: PSS Academic History</h3>
+        <label>School Attended 
+          <select name="school" required>
+            <option value="">Select School</option>
+            <option>Abia - Police Secondary School, Obeaku-Ndoki</option><option>Abuja - Police Day Secondary School, Dei-Dei</option>
+            <option>Abuja - Police Day Secondary School, Area 11</option><option>Akwa Ibom - Police Secondary School, Ukana</option>
+            <option>Cross River - Police Secondary School, Calabar</option><option>Gombe - Police Secondary School, Kumo</option>
+            <option>Imo - Police Secondary School, Isu-Nwangele</option><option>Kaduna - Police Secondary School, Karau-Karau</option>
+            <option>Kaduna - Police Secondary School, Tum-Kagoro</option><option>Kano - Police Girls' Secondary School, Shanono</option>
+            <option>Kano - Police Secondary School, Dawakin-Kudu</option><option>Katsina - Police Boys' Secondary School, Mani</option>
+            <option>Katsina - Police Basic Secondary School, Daura</option><option>Kwara - Police Secondary School, Ballah</option>
+            <option>Kwara - Police Day Secondary School, Ilorin</option><option>Lafia - Police Secondary School, Lafia</option>
+            <option>Niger - Police Secondary School, Minna</option><option>Niger - Police Boys' Secondary School, Bida</option>
+            <option>Niger - Police Secondary School, Nami-Agaie</option><option>Ogun - Police Secondary School, Erinja</option>
+            <option>Ogun - Police Secondary School, Sagamu</option><option>Ondo - Police Secondary School, Akure</option>
+            <option>Ondo - Police Secondary School, Isua-Akoko</option><option>Oyo - Police Secondary School, Igboora</option>
+            <option>Plateau - Police Secondary School, Bashar</option><option>Rivers - Police Comprehensive Secondary School</option>
+            <option>Yobe - Police Secondary School, Damaturu</option><option>Zamfara - Police Secondary School, Gusau</option>
+          </select>
+        </label>
+        <label>Admission Number <input type="text" name="admissionNo" required></label>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <label>Year of Admission <input type="number" name="yearAdmission" min="1960" max="2025" required></label>
+          <label>Year of Graduation <input type="number" name="yearGraduation" min="1960" max="2025" required></label>
+        </div>
+        <label>House/Hostel <input type="text" name="houseHostel"></label>
+        <label>Position(s) Held <input type="text" name="positionHeld"></label>
+        <label>Upload SSCE CERTIFICATE 
+          <div class="file-upload"><input type="file" name="ssceCert" accept=".pdf,image/*"></div>
+        </label>
+      </div>
+
+      <!-- Section 3: Professional & Contact Details -->
+      <div class="section">
+        <h3>Section 3: Professional & Contact Details</h3>
+        <label>Highest Qualification 
+          <select name="qualification" required>
+            <option value="">Select</option><option>SSCE</option><option>ND</option><option>NCE</option>
+            <option>B.Sc</option><option>M.Sc</option><option>PhD</option><option>PROF</option><option>Professional Certificate</option>
+          </select>
+        </label>
+        <label>Current Occupation 
+          <select name="occupation" required>
+            <option value="">Select</option>
+            <option>NILL</option><option>Doctor</option><option>Nurse</option><option>Pharmacist</option><option>Medical Laboratory Scientist</option>
+            <option>Police Officer</option><option>Soldier</option><option>Teacher</option><option>Lecturer</option>
+            <option>Software Developer</option><option>Web Developer</option><option>Data Analyst</option><option>Accountant</option>
+            <option>Engineer</option><option>Architect</option><option>Farmer</option><option>Entrepreneur</option>
+            <option>Journalist</option><option>Artist</option><option>Driver</option><option>Security Guard</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <label>State of Residence 
+          <select name="state" required>
+            <option value="">Select State</option>
+            <option>Abia</option><option>Adamawa</option><option>Akwa Ibom</option><option>Anambra</option><option>Bauchi</option>
+            <option>Bayelsa</option><option>Benue</option><option>Borno</option><option>Cross River</option><option>Delta</option>
+            <option>Ebonyi</option><option>Edo</option><option>Ekiti</option><option>Enugu</option><option>Gombe</option>
+            <option>Imo</option><option>Jigawa</option><option>Kaduna</option><option>Kano</option><option>Katsina</option>
+            <option>Kebbi</option><option>Kogi</option><option>Kwara</option><option>Lagos</option><option>Nasarawa</option>
+            <option>Niger</option><option>Ogun</option><option>Ondo</option><option>Osun</option><option>Oyo</option>
+            <option>Plateau</option><option>Rivers</option><option>Sokoto</option><option>Taraba</option><option>Yobe</option>
+            <option>Zamfara</option><option>FCT - Abuja</option><option>Diaspora</option>
+          </select>
+        </label>
+      </div>
+
+      <!-- Section 4: Alumni Engagement -->
+      <div class="section" style="border-bottom: none;">
+        <h3>Section 4: Alumni Engagement</h3>
+        <label>Member of Alumni Chapter? 
+          <select name="alumniChapter" required><option value="">Select</option><option value="Yes">Yes</option><option value="No">No</option></select>
+        </label>
+      </div>
+
+      <button type="submit" id="submitBtn">Submit Registration</button>
+    </form>
+  </div>
+
+  <!-- Success Modal -->
+  <div id="successModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="document.getElementById('successModal').style.display='none'">&times;</span>
+      <h2>🎉 Congratulations!</h2>
+      <p>You have successfully registered as an EXPOLS member.</p>
+      <button onclick="location.reload()">OK</button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('expolsForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.textContent = 'Submitting...';
+
+      const formData = new FormData(this);
+      try {
+        const res = await fetch('/register/expols', { method: 'POST', body: formData });
+        const data = await res.json();
+        if (data.success) {
+          document.getElementById('successModal').style.display = 'flex';
+          this.reset();
+        } else {
+          alert('Error: ' + (data.message || 'Submission failed'));
+        }
+      } catch (err) {
+        alert('Network error. Please try again.');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Submit Registration';
+      }
+    });
+  </script>
+</body>
+</html>

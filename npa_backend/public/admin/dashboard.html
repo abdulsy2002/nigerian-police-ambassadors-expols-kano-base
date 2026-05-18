@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - NPA EXPOLS Kano</title>
+  
+  <!-- ✅ Use YOUR existing CSS files -->
+  <link rel="stylesheet" href="../asset/styles/root.css">
+  <link rel="stylesheet" href="../asset/styles/default.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="admin.js">
+ 
+</head>
+<body>
+  <div class="admin-layout">
+    <!-- Sidebar (matches your nav style) -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <img src="../../profile.jpeg" alt="Logo" onerror="this.src='https://via.placeholder.com/40?text=NP'">
+        <div>
+          <h2>EX-POLS<span style="color:var(--color-primary)">KANO</span></h2>
+          <p>Admin Panel</p>
+        </div>
+      </div>
+      
+      <ul class="nav-menu">
+        <li class="nav-group">Main</li>
+        <li class="nav-item">
+          <a href="#" class="nav-link active" data-target="dashboard">
+            <i class="fas fa-chart-line"></i> Dashboard
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link" data-target="expols">
+            <i class="fas fa-user-graduate"></i> EXPOLS Members
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link" data-target="ambassadors">
+            <i class="fas fa-handshake"></i> Ambassadors
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link" data-target="verification">
+            <i class="fas fa-check-circle"></i> Verification Queue
+          </a>
+        </li>
+        
+        <li class="nav-group">Management</li>
+        <li class="nav-item">
+          <a href="#" class="nav-link" data-target="documents">
+            <i class="fas fa-folder-open"></i> Documents
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link" data-target="communication">
+            <i class="fas fa-envelope"></i> Communication
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link" data-target="events">
+            <i class="fas fa-calendar-alt"></i> Events & Reunion
+          </a>
+        </li>
+        
+        <li class="nav-group">System</li>
+        <li class="nav-item">
+          <a href="#" class="nav-link" data-target="settings">
+            <i class="fas fa-cog"></i> Settings
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/logout" class="nav-link">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="admin-header">
+        <button id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation">
+          <span class="hamburger"></span>
+        </button>
+        <h1 class="admin-title" id="page-title">Dashboard Overview</h1>
+        <div class="admin-actions">
+          <button class="btn-icon" title="Notifications">
+            <i class="fas fa-bell"></i>
+          </button>
+          <div class="admin-user">
+            <img src="https://ui-avatars.com/api/?name=Admin&background=1e40af&color=fff" alt="Admin">
+            <span id="user-email">Administrator</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="content-area">
+        <!-- 1. Dashboard Overview (with YOUR animated stats) -->
+        <section id="dashboard" class="section active">
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-label">EXPOLS Registrations</span>
+                <div class="metric-icon" style="background:var(--color-primary-light); color:var(--color-primary);">
+                  <i class="fas fa-user-graduate"></i>
+                </div>
+              </div>
+              <div class="metric-value">
+                <span class="stat-number" data-target="0" id="metric-expols">0</span>+
+              </div>
+              <div class="metric-change change-up">
+                <i class="fas fa-arrow-up"></i> <span id="expols-growth">12%</span> from last month
+              </div>
+            </div>
+            
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-label">Ambassador Registrations</span>
+                <div class="metric-icon" style="background:var(--color-success-light); color:var(--color-success);">
+                  <i class="fas fa-handshake"></i>
+                </div>
+              </div>
+              <div class="metric-value">
+                <span class="stat-number" data-target="0" id="metric-ambassadors">0</span>+
+              </div>
+              <div class="metric-change change-up">
+                <i class="fas fa-arrow-up"></i> <span id="amb-growth">8%</span> from last month
+              </div>
+            </div>
+            
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-label">Pending Verifications</span>
+                <div class="metric-icon" style="background:var(--color-warning-light); color:var(--color-warning);">
+                  <i class="fas fa-clock"></i>
+                </div>
+              </div>
+              <div class="metric-value">
+                <span class="stat-number" data-target="0" id="metric-pending">0</span>
+              </div>
+              <div class="metric-change">
+                <span class="change-up">Requires attention</span>
+              </div>
+            </div>
+            
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-label">Total Active Users</span>
+                <div class="metric-icon" style="background:var(--color-danger-light); color:var(--color-danger);">
+                  <i class="fas fa-users"></i>
+                </div>
+              </div>
+              <div class="metric-value">
+                <span class="stat-number" data-target="0" id="metric-total">0</span>+
+              </div>
+              <div class="metric-change">
+                <span class="change-down">Across all categories</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Activity Feed (like your index.html) -->
+          <div class="table-container">
+            <div class="table-header">
+              <h3>📊 Recent Activity</h3>
+              <button class="btn btn-outline btn-sm" onclick="loadDashboardData()">
+                <i class="fas fa-sync-alt"></i> Refresh
+              </button>
+            </div>
+            <div style="padding: 15px; max-height: 300px; overflow-y: auto;" id="activity-feed">
+              <p style="text-align:center; color:var(--color-text-light); padding:20px;">Loading activity...</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. EXPOLS Registrations Table -->
+        <section id="expols" class="section">
+          <div class="table-container">
+            <div class="table-header">
+              <h3>EXPOLS Member Records</h3>
+              <div class="filter-group">
+                <input type="text" class="filter-input" id="expols-search" placeholder="Search name/email...">
+                <select class="filter-select" id="expols-state-filter">
+                  <option value="">All States</option>
+                  <option>Kano</option><option>Lagos</option><option>Abuja</option><option>Kaduna</option>
+                </select>
+                <select class="filter-select" id="expols-status-filter">
+                  <option value="">All Status</option>
+                  <option value="pending">Pending</option>
+                  <option value="verified">Verified</option>
+                  <option value="rejected">Rejected</option>
+                </select>
+                <button class="btn btn-outline" onclick="exportTable('expols-table')">
+                  <i class="fas fa-download"></i> Export
+                </button>
+              </div>
+            </div>
+            <div style="overflow-x: auto;">
+              <table id="expols-table">
+                <thead>
+                  <tr>
+                    <th>Name</th><th>Email</th><th>Phone</th><th>School</th>
+                    <th>Grad Year</th><th>State</th><th>Status</th><th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="expols-tbody">
+                  <tr><td colspan="8" style="text-align:center;padding:20px;">Loading data...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. Ambassadors Table -->
+        <section id="ambassadors" class="section">
+          <div class="table-container">
+            <div class="table-header">
+              <h3>Ambassador Records</h3>
+              <div class="filter-group">
+                <input type="text" class="filter-input" id="amb-search" placeholder="Search name/org...">
+                <select class="filter-select" id="amb-type-filter">
+                  <option value="">All Types</option>
+                  <option>Sponsor</option><option>Donor</option><option>Mentor</option><option>Volunteer</option>
+                </select>
+                <button class="btn btn-outline" onclick="exportTable('ambassadors-table')">
+                  <i class="fas fa-download"></i> Export
+                </button>
+              </div>
+            </div>
+            <div style="overflow-x: auto;">
+              <table id="ambassadors-table">
+                <thead>
+                  <tr>
+                    <th>Name</th><th>Email</th><th>Organization</th><th>Type</th>
+                    <th>Support</th><th>Status</th><th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="ambassadors-tbody">
+                  <tr><td colspan="7" style="text-align:center;padding:20px;">Loading data...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. Verification Queue -->
+        <section id="verification" class="section">
+          <div class="table-container">
+            <div class="table-header">
+              <h3>Pending Verifications</h3>
+              <div class="filter-group">
+                <button class="btn btn-success" onclick="bulkAction('verify')">
+                  <i class="fas fa-check"></i> Bulk Verify
+                </button>
+                <button class="btn btn-danger" onclick="bulkAction('reject')">
+                  <i class="fas fa-times"></i> Bulk Reject
+                </button>
+              </div>
+            </div>
+            <div style="overflow-x: auto;">
+              <table id="verification-table">
+                <thead>
+                  <tr>
+                    <th><input type="checkbox" id="select-all"></th>
+                    <th>Type</th><th>Name</th><th>NIN/Email</th>
+                    <th>Submitted</th><th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="verification-tbody">
+                  <tr><td colspan="6" style="text-align:center;padding:20px;">Loading pending items...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Placeholder sections (expand as needed) -->
+        <section id="documents" class="section">
+          <div class="table-container">
+            <div class="table-header"><h3>Document Manager</h3></div>
+            <div style="padding:40px; text-align:center; color:var(--color-text-light);">
+              <i class="fas fa-folder-open" style="font-size:48px; margin-bottom:15px; color:var(--color-border);"></i>
+              <p>Centralized file storage for Passports, SSCE Certs & Supporting Docs.</p>
+              <button class="btn btn-primary" style="margin-top:15px;">Upload Files</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="communication" class="section">
+          <div class="table-container">
+            <div class="table-header"><h3>Communication Center</h3></div>
+            <div style="padding:40px; text-align:center; color:var(--color-text-light);">
+              <i class="fas fa-envelope" style="font-size:48px; margin-bottom:15px; color:var(--color-border);"></i>
+              <p>Send broadcasts, manage templates, and track delivery status.</p>
+              <button class="btn btn-primary" style="margin-top:15px;">Compose Message</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="events" class="section">
+          <div class="table-container">
+            <div class="table-header"><h3>Event & Reunion Manager</h3></div>
+            <div style="padding:40px; text-align:center; color:var(--color-text-light);">
+              <i class="fas fa-calendar-alt" style="font-size:48px; margin-bottom:15px; color:var(--color-border);"></i>
+              <p>Create events, track RSVPs, and manage attendance reports.</p>
+              <button class="btn btn-primary" style="margin-top:15px;">Create Event</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="settings" class="section">
+          <div class="table-container">
+            <div class="table-header"><h3>System Settings</h3></div>
+            <div style="padding:20px;">
+              <h4>Admin Accounts</h4>
+              <p style="color:var(--color-text-light); margin:10px 0;">Manage roles: Super Admin, Moderator, Support</p>
+              <button class="btn btn-outline">Add Admin</button>
+              <hr style="margin:20px 0; border:0; border-top:1px solid var(--color-border);">
+              <h4>Form Configuration</h4>
+              <p style="color:var(--color-text-light); margin:10px 0;">Toggle required fields, update dropdown options</p>
+              <button class="btn btn-outline">Edit Forms</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- Record Details Modal (matches your design) -->
+  <div class="modal" id="record-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Registration Details</h3>
+        <button class="btn-icon" onclick="closeModal()"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-grid" id="modal-details"></div>
+        <div style="margin-top:20px;">
+          <h4>Uploaded Documents</h4>
+          <div style="display:flex; gap:15px; margin-top:10px;" id="modal-files"></div>
+        </div>
+        <div style="margin-top:20px;">
+          <h4>Admin Notes</h4>
+          <textarea rows="3" style="width:100%; padding:10px; border:1px solid var(--color-border); border-radius:6px; margin-top:5px;"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" onclick="closeModal()">Close</button>
+        <button class="btn btn-warning" onclick="updateStatus('pending')">Mark Pending</button>
+        <button class="btn btn-success" onclick="updateStatus('verified')">Verify</button>
+        <button class="btn btn-danger" onclick="updateStatus('rejected')">Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll to Top Button (from your index.html) -->
+  <button id="scroll-top-btn" class="scroll-top-btn" aria-label="Scroll to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- ===== JAVASCRIPT (with YOUR animations + admin logic) ===== -->
+  
+</body>
+</html>

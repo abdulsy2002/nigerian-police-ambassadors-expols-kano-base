@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2ND AGM Pictures</title>
+
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#f4f4f4}
+.gallery{display:flex;flex-wrap:wrap;gap:20px;padding:20px}
+.photo{flex:1 1 250px;overflow:hidden;border-radius:8px;box-shadow:0 4px 10px rgba(0,0,0,0.2)}
+.photo img{width:100%;height:200px;object-fit:cover;transition:transform 0.3s;display:block}
+.photo img:hover{transform:scale(1.05)}
+</style>
+</head>
+<body>
+<h1 style="text-align:center;">2ND AGM Picture Gallery</h1>
+<div class="gallery" id="gallery"></div>
+<script>
+for(let i=1;i<=98;i++){
+  const photo=document.createElement("div");photo.className="photo";
+  const img=document.createElement("img");
+  img.src=`2nd%20agm/image%20(${i}).jpeg`;img.alt=`Photo ${i}`;
+  img.onerror=function(){
+    const svg=`<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'><rect width='300' height='200' fill='#4F46E5'/><text x='50%' y='45%' font-family='Arial' font-size='24' fill='white' text-anchor='middle' font-weight='bold'>Photo ${i}</text><text x='50%' y='65%' font-family='Arial' font-size='14' fill='rgba(255,255,255,0.9)' text-anchor='middle'>Not Found</text></svg>`;
+    this.src='data:image/svg+xml,'+encodeURIComponent(svg);this.onerror=null;
+  };
+  photo.appendChild(img);document.getElementById("gallery").appendChild(photo);
+}
+</script>
+</body>
+</html>

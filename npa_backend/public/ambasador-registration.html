@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ambassador Registration</title>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; background: #f0fdf4; margin: 0; padding: 20px; }
+    .container { max-width: 850px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+    h1, h2 { text-align: center; color: #166534; margin-bottom: 10px; }
+    .logo { text-align: center; margin-bottom: 20px; }
+    .section { margin-bottom: 25px; border-bottom: 1px solid #dcfce7; padding-bottom: 15px; }
+    .section h3 { color: #14532d; margin-top: 0; }
+    label { display: block; margin: 12px 0 6px; font-weight: 500; color: #365314; }
+    input, select, textarea { width: 100%; padding: 10px; border: 1px solid #bbf7d0; border-radius: 6px; font-size: 15px; box-sizing: border-box; }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: #16a34a; box-shadow: 0 0 0 3px rgba(22,163,74,0.2); }
+    button[type="submit"] { width: 100%; padding: 14px; background: #16a34a; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; margin-top: 20px; transition: background 0.2s; }
+    button[type="submit"]:hover { background: #15803d; }
+    button[type="submit"]:disabled { background: #86efac; cursor: not-allowed; }
+    .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; z-index: 1000; }
+    .modal-content { background: white; padding: 30px; border-radius: 12px; text-align: center; max-width: 450px; width: 90%; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+    .close { float: right; cursor: pointer; font-size: 24px; line-height: 1; }
+    .file-upload { display: flex; align-items: center; gap: 10px; margin: 5px 0 15px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="https://via.placeholder.com/120" alt="NPA Logo" style="border-radius: 8px;">
+      <h2>NIGERIAN POLICE AMBASSADORS<br><small style="color:#15803d">AMBASSADORSHIP REGISTRATION</small></h2>
+    </div>
+
+    <form id="ambassadorForm">
+      <!-- Section 1: Personal Information -->
+      <div class="section">
+        <h3>Section 1: Personal Information</h3>
+        <label>Full Name <input type="text" name="fullName" required></label>
+        <label>Gender 
+          <select name="gender" required><option value="">Select</option><option value="Male">Male</option><option value="Female">Female</option></select>
+        </label>
+        <label>Date of Birth <input type="date" name="dob" required></label>
+        <label>Phone Number <input type="tel" name="phone" required></label>
+        <label>Email Address <input type="email" name="email" required></label>
+        <label>Residential Address <input type="text" name="address" required></label>
+        <label>State 
+          <select name="state" required><option value="">Select</option><option value="Kano">Kano</option><option value="Abuja">Abuja</option><option value="Lagos">Lagos</option><option value="Kaduna">Kaduna</option><option value="Other">Other</option></select>
+        </label>
+        <label>Upload Passport 
+          <div class="file-upload"><input type="file" name="passport" accept="image/*" required></div>
+        </label>
+      </div>
+
+      <!-- Section 2: Professional Details -->
+      <div class="section">
+        <h3>Section 2: Professional Details</h3>
+        <label>Occupation / Profession <input type="text" name="occupation" required></label>
+        <label>Organization / Company Name <input type="text" name="organization" required></label>
+        <label>Position / Title <input type="text" name="position" required></label>
+        <label>Years of Experience <input type="number" name="yearsExperience" min="0" max="50" required></label>
+        <label>LinkedIn / Website <input type="url" name="linkedin"></label>
+      </div>
+
+      <!-- Section 3: Ambassador Role -->
+      <div class="section">
+        <h3>Section 3: Ambassador Role</h3>
+        <label>Type of Ambassador 
+          <select name="ambassadorType" required>
+            <option value="">Select Category</option><option value="Sponsor">Sponsor</option><option value="Donor">Donor</option>
+            <option value="Board of Trustee">Board of Trustee</option><option value="Partner">Partner</option>
+            <option value="Mentor">Mentor</option><option value="Volunteer">Volunteer</option><option value="Supporter">Supporter</option>
+          </select>
+        </label>
+        <label>How would you like to support the organization? 
+          <select name="supportType" required>
+            <option value="">Select Support Type</option><option value="Financial Support">Financial Support</option><option value="Mentorship">Mentorship</option>
+            <option value="Educational Programs">Educational Programs</option><option value="Career Development">Career Development</option>
+            <option value="Scholarship Support">Scholarship Support</option><option value="Training & Workshops">Training & Workshops</option>
+            <option value="Networking Opportunities">Networking Opportunities</option>
+          </select>
+        </label>
+        <label>Estimated Support Commitment 
+          <select name="commitment" required>
+            <option value="">Select</option><option value="One-Time Donation">One-Time Donation</option><option value="Monthly Support">Monthly Support</option>
+            <option value="Yearly Sponsorship">Yearly Sponsorship</option><option value="Project-Based Support">Project-Based Support</option>
+          </select>
+        </label>
+      </div>
+
+      <!-- Section 4: Contribution & Message -->
+      <div class="section" style="border-bottom: none;">
+        <h3>Section 4: Contribution & Message</h3>
+        <label>Why do you want to become an Ambassador? <textarea name="whyAmbassador" rows="4" required></textarea></label>
+        <label>Message to EX-POLS Students <textarea name="message" rows="4" required></textarea></label>
+        <label>Upload Supporting Document (Optional) 
+          <div class="file-upload"><input type="file" name="supportDoc" accept=".pdf,.doc,.docx,image/*"></div>
+        </label>
+      </div>
+
+      <button type="submit" id="submitBtn">Submit Registration</button>
+    </form>
+  </div>
+
+  <!-- Success Modal -->
+  <div id="successModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="document.getElementById('successModal').style.display='none'">&times;</span>
+      <h2>🎉 Registration Successful!</h2>
+      <p>Thank you for becoming an Ambassador of Nigerian Police Ambassadors EX-POLS Kano Base.</p>
+      <button onclick="location.reload()">OK</button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('ambassadorForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.textContent = 'Submitting...';
+
+      const formData = new FormData(this);
+      try {
+        const res = await fetch('/register/ambassador', { method: 'POST', body: formData });
+        const data = await res.json();
+        if (data.success) {
+          document.getElementById('successModal').style.display = 'flex';
+          this.reset();
+        } else {
+          alert('Error: ' + (data.message || 'Submission failed'));
+        }
+      } catch (err) {
+        alert('Network error. Please try again.');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Submit Registration';
+      }
+    });
+  </script>
+</body>
+</html>

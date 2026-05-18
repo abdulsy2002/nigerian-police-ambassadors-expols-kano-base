@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validate Member - NPA EXPOLS</title>
+  <style>
+    /* RESET */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { background: #f4f6f9; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; }
+    .container { width: 100%; max-width: 450px; }
+    .card { background: #fff; padding: 25px; text-align: center; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    h2 { color: #003366; margin-bottom: 15px; }
+    .subtitle { color: #666; font-size: 14px; margin-bottom: 20px; }
+    
+    /* INPUT */
+    input, select { width: 100%; padding: 10px; margin-top: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px; }
+    
+    /* BUTTON */
+    button { width: 100%; padding: 10px; margin-top: 10px; background: #003366; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; transition: 0.3s; }
+    button:hover { background: #0055aa; }
+    button:disabled { background: #999; cursor: not-allowed; }
+    
+    /* RESULT */
+    #reader { margin-top: 15px; }
+    .result { margin-top: 15px; padding: 10px; border-radius: 5px; font-weight: bold; font-size: 14px; text-align: left; }
+    .success { background: #e6ffed; color: green; border: 1px solid #4caf50; }
+    .error { background: #ffe6e6; color: red; border: 1px solid #f44336; }
+    .loading { background: #e3f2fd; color: #1976d2; }
+    
+    /* Member Details Card */
+    .member-card { margin-top: 15px; padding: 15px; background: #f8f9fa; border-radius: 8px; text-align: left; }
+    .member-card p { margin: 8px 0; font-size: 14px; }
+    .member-card strong { color: #003366; }
+    .badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; }
+    .badge-expols { background: #e3f2fd; color: #1976d2; }
+    .badge-ambassador { background: #e8f5e9; color: #388e3c; }
+    
+    /* Responsive */
+    @media(max-width:600px) {
+      .card { padding: 20px; }
+      h2 { font-size: 20px; }
+      input, button { font-size: 14px; padding: 8px; }
+    }
+  </style>
+  <script src="https://unpkg.com/html5-qrcode"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h2>🔍 Validate Membership</h2>
+      <p class="subtitle">Enter ID, Email, or scan QR code to verify</p>
+      
+      <!-- Search Type -->
+      <select id="searchType">
+        <option value="id">Member ID</option>
+        <option value="email">Email Address</option>
+        <option value="nin">NIN</option>
+      </select>
+      
+      <!-- Manual Input -->
+      <input type="text" id="searchValue" placeholder="Enter Member ID">
+      <button onclick="validateUser()" id="validateBtn">Validate</button>
+      
+      <!-- QR Scanner -->
+      <div id="reader"></div>
+      
+      <!-- Result -->
+      <div id="result"></div>
+    </div>
+  </div>
+
+  <script>
+    // Update placeholder based on search type
+    document.getElementById('searchType').addEventListener('change', function() {
+      const placeholder = {
+        id: 'Enter Member ID (e.g., 1234567890)',
+        email: 'Enter email address',
+        nin: 'Enter NIN (11 digits)'
+      };
+      document.getElementById('searchValue').placeholder = placeholder[this.value];
+    });
+
+    // Manual validation
+    async function validateUser() {
+      const type = document.getElementById('searchType').value;
+      const value = document.getElementById('searchValue').value.trim();
+      const result = document.getElementById('result');
+      const btn = document.getElementById('validateBtn');
+      
+      if (!value) {
+        result.innerHTML = '⚠️ Please enter a value to search';
+        result.className = 'result error';
+        return;
+      }
+      
+      // Show loading
+      btn.disabled = true;
+      btn.textContent = 'Searching...';
+      result.innerHTML = '<span class="loading">🔍 Searching database...</span>';
+      result.className = 'result loading';
+      
+      try {
+        // Build query params
+        const params = new URLSearchParams();
+        if (type === 'id') params.append('id', value);
+        else if (type === 'email') params.append('email', value.toLowerCase());
+        else if (type === 'nin') params.append('nin', value);
+        
+        // Fetch from backend
+        const response = await fetch(`/api/validate?${params}`);
+        const data = await response.json();
+        
+        if (data.success && data.member) {
+          const m = data.member;
+          result.innerHTML = `
+            <div class="member-card">
+              <p><strong>✅ Verified Member</strong></p>
+              <p><strong>Name:</strong> ${m.fullName || 'N/A'}</p>
+              <p><strong>Email:</strong> ${m.email || 'N/A'}</p>
+              <p><strong>Phone:</strong> ${m.phone || 'N/A'}</p>
+              <p><strong>Type:</strong> <span class="badge badge-${m.type === 'EXPOLS' ? 'expols' : 'ambassador'}">${m.type}</span></p>
+              <p><strong>School/Org:</strong> ${m.school || 'N/A'}</p>
+              <p><strong>State:</strong> ${m.state || 'N/A'}</p>
+              <p><strong>Registered:</strong> ${m.registeredAt ? new Date(m.registeredAt).toLocaleDateString() : 'N/A'}</p>
+              <p><strong>Status:</strong> ${m.status || 'Active'}</p>
+            </div>
+          `;
+          result.className = 'result success';
+        } else {
+          result.innerHTML = `❌ ${data.message || 'Member not found'}`;
+          result.className = 'result error';
+        }
+      } catch (err) {
+        console.error('Validation error:', err);
+        result.innerHTML = '❌ Network error. Is server running?';
+        result.className = 'result error';
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Validate';
+      }
+    }
+    
+    // QR Scan success
+    function onScanSuccess(decodedText) {
+      // Stop scanner after successful scan
+      if (window.scanner) {
+        window.scanner.clear().catch(console.error);
+      }
+      
+      let id = decodedText;
+      
+      // Parse URL format: https://.../validate?id=123456
+      if (decodedText.includes('id=')) {
+        try {
+          const url = new URL(decodedText);
+          id = url.searchParams.get('id');
+        } catch (e) {
+          // Fallback: extract id from string
+          const match = decodedText.match(/id=([^&\s]+)/);
+          if (match) id = match[1];
+        }
+      }
+      
+      // Auto-fill and validate
+      document.getElementById('searchType').value = 'id';
+      document.getElementById('searchValue').value = id;
+      document.getElementById('searchValue').placeholder = 'Enter Member ID (e.g., 1234567890)';
+      validateUser();
+    }
+    
+    // Initialize QR scanner
+    document.addEventListener('DOMContentLoaded', () => {
+      try {
+        window.scanner = new Html5QrcodeScanner("reader", {
+          fps: 10,
+          qrbox: { width: 200, height: 200 }
+        });
+        window.scanner.render(onScanSuccess, (error) => {
+          // Optional: handle scan errors silently
+        });
+      } catch (err) {
+        console.warn('QR scanner not available:', err);
+        document.getElementById('reader').innerHTML = '<p style="color:#666;font-size:13px;">QR scanner unavailable</p>';
+      }
+    });
+    
+    // Allow Enter key to trigger validation
+    document.getElementById('searchValue').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') validateUser();
+    });
+  </script>
+</body>
+</html>

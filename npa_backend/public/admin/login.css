@@ -1,0 +1,163 @@
+/* Reset */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* Page Background */
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: whitesmoke;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* Login Box */
+.login-container{
+    background:white;
+    width:350px;
+    padding:40px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Logo Image */
+.logo{
+    width:120px;
+    height:120px;
+    object-fit:cover;
+    border-radius:50%;
+    margin-bottom:15px;
+    border:3px solid #1e3c72;
+}
+
+/* Title */
+h2{
+    margin-bottom:20px;
+    color:#333;
+}
+
+/* Input Fields */
+input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:5px;
+    font-size:14px;
+}
+
+/* Button */
+button{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    background:#1e3c72;
+    color:white;
+    border:none;
+    border-radius:5px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+/* Button Hover */
+button:hover{
+    background:#16325c;
+}
+
+/* Register Text */
+.register{
+    margin-top:15px;
+    font-size:14px;
+}
+
+.register a{
+    color:#1e3c72;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.register a:hover{
+    text-decoration:underline;
+}
+
+.forgot{
+    text-align:right;
+    margin:5px 0 10px 0;
+}
+
+.forgot a{
+    font-size:13px;
+    text-decoration:none;
+    color:#1e3c72;
+}
+
+.forgot a:hover{
+    text-decoration:underline;
+}
+
+/* ===== NEW: Auth Code Section (Matches your style) ===== */
+.divider {
+    margin: 20px 0;
+    border-top: 1px solid #ddd;
+}
+
+.auth-section {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.auth-section h4 {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.auth-section p {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 6px;
+}
+
+.auth-code-input {
+    text-align: center;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.verify-btn {
+    background: #27ae60; /* Different from login to avoid confusion */
+}
+
+.verify-btn:hover {
+    background: #219150;
+}
+
+#authMessage {
+    font-size: 12px;
+    margin-top: 4px;
+    min-height: 16px;
+}
+
+.success-msg { color: #27ae60; }
+.error-msg { color: #e74c3c; }
+
+#registerLink {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #e0e0e0;
+    margin-top: 10px;
+}
+
+#error {
+    color: #e74c3c;
+    font-size: 13px;
+    margin-top: 8px;
+    min-height: 18px;
+}

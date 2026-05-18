@@ -6,23 +6,34 @@
 
   <!-- CSS -->
   <style>
-    body {
+    /* RESET */
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
       font-family: Arial, sans-serif;
-      background: #f4f6f9;
     }
 
-    .container {
+    /* BODY */
+    body {
+      background: #f4f6f9;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      padding: 20px;
     }
 
+    /* CONTAINER */
+    .container {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    /* CARD */
     .card {
       background: #fff;
       padding: 25px;
-      width: 350px;
       text-align: center;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -30,16 +41,20 @@
 
     h2 {
       color: #003366;
+      margin-bottom: 15px;
     }
 
+    /* INPUT */
     input {
       width: 100%;
       padding: 10px;
       margin-top: 10px;
       border: 1px solid #ccc;
       border-radius: 5px;
+      font-size: 16px;
     }
 
+    /* BUTTON */
     button {
       width: 100%;
       padding: 10px;
@@ -49,12 +64,15 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
     }
 
     button:hover {
       background: #0055aa;
     }
 
+    /* QR SCANNER & RESULT */
     #reader {
       margin-top: 15px;
     }
@@ -64,6 +82,7 @@
       padding: 10px;
       border-radius: 5px;
       font-weight: bold;
+      font-size: 14px;
     }
 
     .success {
@@ -75,6 +94,70 @@
       background: #ffe6e6;
       color: red;
     }
+
+    /* -------------------- */
+    /* MEDIA QUERIES */
+    /* -------------------- */
+
+    /* Mobile Devices (up to 600px) */
+    @media(max-width:600px) {
+      .card {
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      input, button {
+        font-size: 14px;
+        padding: 8px;
+      }
+
+      .result {
+        font-size: 13px;
+      }
+    }
+
+    /* Tablets / Small Laptops (601px–1024px) */
+    @media(min-width:601px) and (max-width:1024px) {
+      .card {
+        padding: 25px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      input, button {
+        font-size: 15px;
+        padding: 9px;
+      }
+
+      .result {
+        font-size: 14px;
+      }
+    }
+
+    /* Large Screens (1025px and above) */
+    @media(min-width:1025px) {
+      .card {
+        padding: 25px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      input, button {
+        font-size: 16px;
+        padding: 10px;
+      }
+
+      .result {
+        font-size: 14px;
+      }
+    }
   </style>
 
   <!-- QR Scanner Library -->
@@ -82,70 +165,62 @@
 </head>
 
 <body>
+  <div class="container">
+    <div class="card">
+      <h2>Validate Membership</h2>
 
-<div class="container">
-  <div class="card">
+      <!-- Manual Input -->
+      <input type="text" id="memberId" placeholder="Enter Member ID">
+      <button onclick="validateUser()">Validate</button>
 
-    <h2>Validate Membership</h2>
+      <!-- QR Scanner -->
+      <div id="reader"></div>
 
-    <!-- Manual Input -->
-    <input type="text" id="memberId" placeholder="Enter Member ID">
-    <button onclick="validateUser()">Validate</button>
-
-    <!-- QR Scanner -->
-    <div id="reader"></div>
-
-    <!-- Result -->
-    <div id="result"></div>
-
+      <!-- Result -->
+      <div id="result"></div>
+    </div>
   </div>
-</div>
 
-<script>
-  // Dummy members (replace with database later)
-  let members = ["NP001", "NP002", "NP003"];
+  <script>
+    // Dummy members (replace with database later)
+    let members = ["NP001", "NP002", "NP003"];
 
-  // Manual validation
-  function validateUser() {
-    let id = document.getElementById("memberId").value;
-    showResult(id);
-  }
-
-  // Show result
-  function showResult(id) {
-    let result = document.getElementById("result");
-
-    if (members.includes(id)) {
-      result.innerHTML = "✅ Valid Member: " + id;
-      result.className = "result success";
-    } else {
-      result.innerHTML = "❌ Member Not Found";
-      result.className = "result error";
-    }
-  }
-
-  // QR Scan success
-  function onScanSuccess(decodedText) {
-    let id = decodedText;
-
-    // If QR contains link like ?id=NP001
-    if (decodedText.includes("id=")) {
-      let url = new URL(decodedText);
-      id = url.searchParams.get("id");
+    // Manual validation
+    function validateUser() {
+      let id = document.getElementById("memberId").value;
+      showResult(id);
     }
 
-    document.getElementById("memberId").value = id;
-    showResult(id);
-  }
+    // Show result
+    function showResult(id) {
+      let result = document.getElementById("result");
+      if (members.includes(id)) {
+        result.innerHTML = "✅ Valid Member: " + id;
+        result.className = "result success";
+      } else {
+        result.innerHTML = "❌ Member Not Found";
+        result.className = "result error";
+      }
+    }
 
-  // Start scanner
-  let scanner = new Html5QrcodeScanner("reader", {
-    fps: 10,
-    qrbox: 200
-  });
+    // QR Scan success
+    function onScanSuccess(decodedText) {
+      let id = decodedText;
+      if (decodedText.includes("id=")) {
+        let url = new URL(decodedText);
+        id = url.searchParams.get("id");
+      }
+      document.getElementById("memberId").value = id;
+      showResult(id);
+    }
 
-  scanner.render(onScanSuccess);
-</script>
+    // Start scanner
+    let scanner = new Html5QrcodeScanner("reader", {
+      fps: 10,
+      qrbox: 200
+    });
 
+    scanner.render(onScanSuccess);
+  </script>
 </body>
 </html>

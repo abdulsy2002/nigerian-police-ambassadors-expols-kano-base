@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery | EX-POLS KANO BASE</title>
+  
+  <!-- External CSS -->
+
+  <link rel="stylesheet" href="gallery.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="container">
+    <header id="main-header">
+      <nav class="container">
+        <a href="index.html" class="logo">
+          <img src="profile.jpeg" alt="Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/40?text=NP'">
+          EX-POLS<span>KANO</span>
+        </a>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="registration.html" class="nav-link">Register</a></li>
+          <li><a href="reunion.html" class="nav-link">Reunion</a></li>
+          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="faqs.html" class="nav-link">FAQs</a></li>
+          <li><a href="validate.html" class="nav-link">Validate User</a></li>
+          <li><a href="login.html" class="nav-link btn-nav">Admin Panel</a></li>
+        </ul>
+        <button class="menu-toggle" aria-label="Toggle navigation">
+          <span class="hamburger"></span>
+        </button>
+      </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <p class="section-subtitle">OUR MEMORIES</p>
+        <h1>Welcome to Our <span id="typing-text">Pictures Gallery</span></h1>
+        <p>Relive the moments from our Annual General Meetings, reunions, and community events. Browse photos from each gathering and celebrate the legacy of EX-POLS KANO Base.</p>
+        <div class="hero-buttons">
+          <a href="#agm-gallery" class="btn btn-primary">View AGM Photos</a>
+          <a href="#submit" class="btn btn-outline">Submit Your Photos</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Navigation -->
+    <section class="section">
+      <div class="container text-center">
+        <p class="section-subtitle">BROWSE BY EVENT</p>
+        <h2 class="section-title">Annual General Meeting Archives</h2>
+        <p class="section-text">Click on any AGM below to view photos from that year's gathering.</p>
+        
+        <div class="gallery-nav" style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin: 30px 0;">
+          <a href="#agm1" class="btn btn-outline gallery-nav-btn active" data-target="agm1">
+            <i class="fas fa-calendar" style="margin-right: 6px;"></i>1st AGM
+          </a>
+          <a href="#agm2" class="btn btn-outline gallery-nav-btn" data-target="agm2">
+            <i class="fas fa-calendar" style="margin-right: 6px;"></i>2nd AGM
+          </a>
+          <a href="#agm3" class="btn btn-outline gallery-nav-btn" data-target="agm3">
+            <i class="fas fa-calendar" style="margin-right: 6px;"></i>3rd AGM
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1st AGM Gallery -->
+    <section id="agm1" class="gallery-section active" data-gallery="agm1">
+      <div class="container">
+        <div class="gallery-header">
+          <h3>🎉 1st Annual General Meeting</h3>
+          <p style="color: var(--color-text-light);">Kano State • December 2023</p>
+        </div>
+        
+        <div class="gallery-grid">
+          <!-- Photo 1 -->
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400" alt="1st AGM Group Photo" loading="lazy">
+            <div class="gallery-overlay">
+              <h4>Opening Ceremony</h4>
+              <button class="btn-view" data-src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1200">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Photo 2 -->
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1523580494863-132a890389f2?w=400" alt="1st AGM Awards" loading="lazy">
+            <div class="gallery-overlay">
+              <h4>Awards Presentation</h4>
+              <button class="btn-view" data-src="https://images.unsplash.com/photo-1523580494863-132a890389f2?w=1200">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Photo 3 -->
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=400" alt="1st AGM Networking" loading="lazy">
+            <div class="gallery-overlay">
+              <h4>Alumni Networking</h4>
+              <button class="btn-view" data-src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1200">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Photo 4 -->
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=400" alt="1st AGM Dinner" loading="lazy">
+            <div class="gallery-overlay">
+              <h4>Gala Dinner</h4>
+              <button class="btn-view" data-src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=1200">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Photo 5 -->
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1561070791519-389dc1e8288a?w=400" alt="1st AGM Speech" loading="lazy">
+            <div class="gallery-overlay">
+              <h4>Keynote Address</h4>
+              <button class="btn-view" data-src="https://images.unsplash.com/photo-1561070791519-389dc1e8288a?w=1200">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Photo 6 -->
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=400" alt="1st AGM Group" loading="lazy">
+            <div class="gallery-overlay">
+              <h4>Group Photo</h4>
+              <button class="btn-view" data-src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=1200">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="text-center" style="margin-top: 30px;">
+          <a href="1st-agm.html" class="btn btn-primary">View All 1st AGM Photos →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2nd AGM Gallery -->
+    <section id="agm2" class="gallery-section" data-gallery="agm2" style="display: none;">
+      <div class="container">
+        <div class="gallery-header">
+          <h3>🎉 2nd Annual General Meeting</h3>
+          <p style="color: var(--color-text-light);">Kano State • December 2024</p>
+        </div>
+        
+        <div class="gallery-grid">
+          <!-- Photo 1 -->
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400" alt="2nd AGM Registration" loading="lazy">
+            <div class="gallery-overlay">
+              <h4>Registration Desk</h4>
+              <button class="btn-view" data-src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Photo 2 -->
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400" alt="2nd AGM Panel" loading="lazy">
+            <div class="gallery-overlay">
+              <h4>Panel Discussion</h4>
+              <button class="btn-view" data-src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Photo 3 -->
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=400" alt="2nd AGM Workshop" loading="lazy">
+            <div class="gallery-overlay">
+              <h4>Skills Workshop</h4>
+              <button class="btn-view" data-src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=1200">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Photo 4 -->
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=400" alt="2nd AGM Social" loading="lazy">
+            <div class="gallery-overlay">
+              <h4>Evening Social</h4>
+              <button class="btn-view" data-src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=1200">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Photo 5 -->
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400" alt="2nd AGM Closing" loading="lazy">
+            <div class="gallery-overlay">
+              <h4>Closing Ceremony</h4>
+              <button class="btn-view" data-src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Photo 6 -->
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400" alt="2nd AGM Group" loading="lazy">
+            <div class="gallery-overlay">
+              <h4>Final Group Photo</h4>
+              <button class="btn-view" data-src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1200">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="text-center" style="margin-top: 30px;">
+          <a href="2nd-agm.html" class="btn btn-primary">View All 2nd AGM Photos →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3rd AGM Gallery -->
+    <section id="agm3" class="gallery-section" data-gallery="agm3" style="display: none;">
+      <div class="container">
+        <div class="gallery-header">
+          <h3>🎉 3rd Annual General Meeting</h3>
+          <p style="color: var(--color-text-light);">Kano State • December 2025</p>
+        </div>
+        
+        <div class="gallery-grid">
+          <!-- Photo 1 -->
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1543269664-76bc3997d9ea?w=400" alt="3rd AGM Welcome" loading="lazy">
+            <div class="gallery-overlay">
+              <h4>Welcome Reception</h4>
+              <button class="btn-view" data-src="https://images.unsplash.com/photo-1543269664-76bc3997d9ea?w=1200">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Photo 2 -->
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=400" alt="3rd AGM Keynote" loading="lazy">
+            <div class="gallery-overlay">
+              <h4>Guest Speaker</h4>
+              <button class="btn-view" data-src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1200">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Photo 3 -->
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400" alt="3rd AGM Networking" loading="lazy">
+            <div class="gallery-overlay">
+              <h4>Networking Session</h4>
+              <button class="btn-view" data-src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1200">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Photo 4 -->
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=400" alt="3rd AGM Awards" loading="lazy">
+            <div class="gallery-overlay">
+              <h4>Excellence Awards</h4>
+              <button class="btn-view" data-src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=1200">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Photo 5 -->
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=400" alt="3rd AGM Cultural" loading="lazy">
+            <div class="gallery-overlay">
+              <h4>Cultural Display</h4>
+              <button class="btn-view" data-src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=1200">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Photo 6 -->
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400" alt="3rd AGM Group" loading="lazy">
+            <div class="gallery-overlay">
+              <h4>Alumni Group Photo</h4>
+              <button class="btn-view" data-src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1200">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="text-center" style="margin-top: 30px;">
+          <a href="3rd-agm.html" class="btn btn-primary">View All 3rd AGM Photos →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Submit Photos CTA -->
+    <section id="submit" class="section" style="background: var(--color-primary); color: var(--color-text-white); text-align: center;">
+      <div class="container">
+        <h2 class="section-title" style="color: var(--color-text-white);">Have Photos to Share?</h2>
+        <p style="max-width: 600px; margin: 0 auto var(--space-md); color: rgba(255,255,255,0.9);">Help us preserve our history! Submit your event photos to be featured in our official gallery.</p>
+        <a href="contact.html" class="btn btn-primary" style="background: var(--color-text-white); color: var(--color-primary);">Submit Photos</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4 class="footer-heading">EX-POLS KANO BASE</h4>
+          <p class="footer-text">Nigerian Police Ambassadors Alumni Association. Promoting unity, discipline, and networking.</p>
+          <div class="social-icons" style="margin-top: 15px;">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Quick Links</h4>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="registration.html">Register</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Support</h4>
+          <div class="footer-links">
+            <a href="faqs.html">FAQs</a>
+            <a href="validate.html">Validate</a>
+            <a href="login.html">Admin</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Contact</h4>
+          <p class="footer-text">
+            <i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i> Kano, Nigeria<br>
+            <i class="fas fa-envelope" style="margin-right: 8px;"></i> info@expols-kano.org<br>
+            <i class="fas fa-phone" style="margin-right: 8px;"></i> +234 XXX XXX XXXX
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom flex-between">
+        <p class="footer-copy">© 2026 EX-POLS KANO Base. All rights reserved.</p>
+        <div class="social-icons">
+          <a href="#" class="social-icon"><i class="fas fa-shield-alt"></i></a>
+          <a href="#" class="social-icon"><i class="fas fa-file-contract"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox">
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <img id="lightbox-img" src="" alt="Expanded view">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+    <button class="lightbox-nav prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+    <button class="lightbox-nav next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+  </div>
+
+  <!-- Scroll to Top -->
+  <button id="scroll-top-btn" class="scroll-top-btn"><i class="fas fa-arrow-up"></i></button>
+
+  <script>
+    // ===== Mobile Menu Toggle =====
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    
+    menuToggle?.addEventListener('click', () => {
+      navMenu?.classList.toggle('active');
+      menuToggle?.classList.toggle('active');
+    });
+    
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu?.classList.remove('active');
+        menuToggle?.classList.remove('active');
+      });
+    });
+
+    // ===== Gallery Navigation =====
+    const galleryNavBtns = document.querySelectorAll('.gallery-nav-btn');
+    const gallerySections = document.querySelectorAll('.gallery-section');
+    
+    galleryNavBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Update active button
+        galleryNavBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        // Show selected gallery, hide others
+        const target = btn.dataset.target;
+        gallerySections.forEach(section => {
+          if (section.dataset.gallery === target) {
+            section.style.display = 'block';
+            setTimeout(() => section.style.opacity = '1', 50);
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          } else {
+            section.style.opacity = '0';
+            setTimeout(() => section.style.display = 'none', 300);
+          }
+        });
+      });
+    });
+
+    // ===== Lightbox Functionality =====
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const btnView = document.querySelectorAll('.btn-view');
+    
+    btnView.forEach(btn => {
+      btn.addEventListener('click', () => {
+        lightboxImg.src = btn.dataset.src;
+        lightboxCaption.textContent = btn.closest('.gallery-item').querySelector('h4').textContent;
+        lightbox.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    
+    document.querySelector('.lightbox-close')?.addEventListener('click', closeLightbox);
+    lightbox?.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    
+    function closeLightbox() {
+      lightbox.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+    
+    // Keyboard navigation for lightbox
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    // ===== Scroll to Top =====
+    const scrollTopBtn = document.getElementById('scroll-top-btn');
+    window.addEventListener('scroll', () => {
+      if (scrollTopBtn) {
+        scrollTopBtn.style.opacity = window.pageYOffset > 300 ? '1' : '0';
+        scrollTopBtn.style.pointerEvents = window.pageYOffset > 300 ? 'all' : 'none';
+      }
+    });
+    scrollTopBtn?.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // ===== Typing Effect =====
+    const typingText = document.getElementById('typing-text');
+    if (typingText) {
+      const texts = ['Pictures Gallery', 'Photo Archive', 'Memory Lane'];
+      let textIndex = 0, charIndex = 0, isDeleting = false;
+      
+      function type() {
+        const current = texts[textIndex];
+        typingText.textContent = isDeleting 
+          ? current.substring(0, charIndex - 1) 
+          : current.substring(0, charIndex + 1);
+        charIndex += isDeleting ? -1 : 1;
+        
+        let speed = isDeleting ? 40 : 80;
+        if (!isDeleting && charIndex === current.length) { 
+          speed = 2000; 
+          isDeleting = true; 
+        } else if (isDeleting && charIndex === 0) { 
+          isDeleting = false; 
+          textIndex = (textIndex + 1) % texts.length; 
+          speed = 400; 
+        }
+        setTimeout(type, speed);
+      }
+      setTimeout(type, 1000);
+    }
+  </script>
+</body>
+</html>

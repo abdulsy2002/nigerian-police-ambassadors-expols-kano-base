@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - NPA EXPOLS</title>
+  <link rel="stylesheet" href="register.css">
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-card">
+      <h2>Create Account</h2>
+      <p class="subtitle">Join the NPA EXPOLS community. Requires admin authorization.</p>
+      
+      <form id="registerForm">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required placeholder="you@example.com">
+        </div>
+        
+        <div class="form-group">
+          <label for="password">Create Password</label>
+          <input type="password" id="password" name="password" required placeholder="••••••••" minlength="6">
+        </div>
+        
+        <div class="form-group">
+          <label for="authCode">Admin Auth Code</label>
+          <input type="text" id="authCode" name="authCode" required placeholder="XXXXXX" maxlength="6" pattern="[A-Za-z0-9]{6}" style="text-transform: uppercase;">
+        </div>
+        
+        <button type="submit" id="submitBtn">Submit Registration</button>
+        <div id="message" class="message"></div>
+      </form>
+      
+      <p class="auth-link">Already have an account? <a href="login.html">Login</a></p>
+    </div>
+  </div>
+  
+  <script src="register.js"></script>
+</body>
+</html>
