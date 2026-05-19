@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EXPOLS Registrations - Admin</title>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; background: #f8fafc; margin: 0; padding: 20px; color: #1e293b; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    h1 { margin-bottom: 20px; color: #0f172a; }
+    .nav { margin-bottom: 20px; }
+    .nav a { text-decoration: none; color: #2563eb; font-weight: 500; }
+    .nav a:hover { text-decoration: underline; }
+    table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #f1f5f9; font-weight: 600; color: #475569; }
+    tr:hover { background: #f8fafc; }
+    .file-link { color: #2563eb; text-decoration: none; font-size: 0.9em; margin-right: 8px; }
+    .file-link:hover { text-decoration: underline; }
+    .empty { text-align: center; padding: 40px; color: #64748b; font-style: italic; }
+    .badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 0.85em; font-weight: 500; }
+    .badge-yes { background: #dcfce7; color: #166534; }
+    .badge-no { background: #fee2e2; color: #991b1b; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="nav"><a href="/admin">← Back to Dashboard</a></div>
+    <h1> EXPOLS Registrations (<%= data.length %>)</h1>
+    
+    <% if (data.length === 0) { %>
+      <div class="empty">No EXPOLS registrations found yet.</div>
+    <% } else { %>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>School</th>
+            <th>Occupation</th>
+            <th>State</th>
+            <th>Alumni</th>
+            <th>Files</th>
+            <th>Registered</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% data.forEach(d => { %>
+            <tr>
+              <td><strong><%= d.fullName %></strong><br><small style="color:#64748b"><%= d.otherName || '-' %></small></td>
+              <td><%= d.email || '-' %></td>
+              <td><%= d.phone || '-' %></td>
+              <td><%= d.school || '-' %></td>
+              <td><%= d.occupation || '-' %></td>
+              <td><%= d.state || '-' %></td>
+              <td>
+                <% if (d.alumniChapter === 'Yes') { %>
+                  <span class="badge badge-yes">Yes</span>
+                <% } else { %>
+                  <span class="badge badge-no">No</span>
+                <% } %>
+              </td>
+              <td>
+                <% if (d.passport) { %><a href="<%= d.passport %>" target="_blank" class="file-link">Passport</a><% } %>
+                <% if (d.ssceCert) { %><a href="<%= d.ssceCert %>" target="_blank" class="file-link">SSCE</a><% } %>
+                <% if (!d.passport && !d.ssceCert) { %>-<% } %>
+              </td>
+              <td><small><%= new Date(d.registeredAt).toLocaleDateString() %></small></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    <% } %>
+  </div>
+</body>
+</html>
